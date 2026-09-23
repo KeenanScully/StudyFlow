@@ -1,5 +1,8 @@
 # StudyFlow
 
+Link to the prototype functionality down below:
+https://youtu.be/ml3ZqknexKM
+
 ## Purpose
 
 StudyFlow is a mobile academic productivity application designed for tertiary students. The application helps students organise their academic information in one place and provides a foundation for managing modules, academic tasks and personal study information.
