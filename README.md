@@ -253,7 +253,7 @@ Future versions of StudyFlow are planned to include:
 - Offline storage using Room
 - Data synchronisation
 
-**Conclusion:**
+## Conclusion:
 
 StudyFlow was developed to address the need for a centralised academic organisation platform for tertiary students.
 The original prototype established the core functionality, including user authentication, academic module management, profile settings and communication with a cloud-hosted backend.
