@@ -172,6 +172,73 @@ com.studyflow.app
 
 This structure separates the user interface from business logic and data access.
 
+ Innovative features introduced after the prototype
+The latest development phase focused on extending the original prototype beyond basic academic module management.
+
+The following features represent the major enhancements.
+
+**Google Single Sign-On:**
+Google Single Sign-On was added using Firebase Authentication and Android Credential Manager.
+
+This allows users to authenticate using an existing Google account instead of having to enter their email address and password manually.
+
+The feature improves convenience by reducing the steps required to access the application.
+
+Firebase handles the authentication process and verifies the Google credentials.
+
+
+**Push notification functionality:**
+Firebase Cloud Messaging was introduced to provide the foundation for real-time notifications.
+
+The Android application now includes:
+- A Firebase messaging service.
+- A notification channel for StudyFlow.
+- Android notification permission handling for Android 13 and newer.
+- Notification display logic for incoming Firebase messages.
+This creates the foundation for future academic notifications, including assignment reminders, module announcements and important updates.
+
+The Android receiving implementation has been built, but an end-to-end notification test and backend notification sending integration still need to be completed. Therefore, fully operational real-time academic notifications should not yet be claimed.
+
+
+**Multilingual support:
+**
+Multilingual support was introduced to improve the accessibility of StudyFlow.
+
+The original application uses English. Afrikaans translations have been added using Android string resources, and AppCompat locale management has been introduced as the language-switching mechanism.
+
+The language selector is still being debugged, and the translations have not yet been connected throughout the application's Compose screens.
+
+isiXhosa is also a planned language, but its resource directory and translations have not yet been completed.
+
+
+**Testing and verification**
+Testing was performed incrementally during development to ensure that new features did not unnecessarily affect existing application functionality.
+
+The following table summarises the known testing status.
+Feature	Testing status
+Email/password registration	Previously tested successfully
+Email/password login	Previously tested successfully
+Google sign-in	Tested successfully
+Module CRUD	Previously tested successfully
+Display name updates	Previously tested successfully
+Firebase messaging service	Builds successfully
+Notification permission	Tested successfully
+Actual push notification delivery	Not yet confirmed
+Room database	Dependencies synced; implementation not fully tested
+Afrikaans language switching	Not working yet
+isiXhosa translations	Not implemented
+GitHub Actions	Workflow execution not confirmed
+
+Further testing should include:
+- Testing authentication on physical Android devices.
+- Testing notification delivery in both foreground and background states.
+- Testing offline module creation, editing and deletion.
+- Testing synchronisation after an internet connection is restored.
+- Testing language selection and persistence after restarting the application.
+- Testing API authentication and access restrictions.
+- Testing the GitHub Actions build and test workflows.
+
+
 ## Future Development
 
 Future versions of StudyFlow are planned to include:
@@ -185,6 +252,4 @@ Future versions of StudyFlow are planned to include:
 - Study streaks and gamification
 - Offline storage using Room
 - Data synchronisation
-- Push notifications
-- Google SSO
-- English, isiXhosa and Afrikaans language support
+
