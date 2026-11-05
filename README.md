@@ -253,3 +253,10 @@ Future versions of StudyFlow are planned to include:
 - Offline storage using Room
 - Data synchronisation
 
+**Conclusion:**
+StudyFlow was developed to address the need for a centralised academic organisation platform for tertiary students.
+The original prototype established the core functionality, including user authentication, academic module management, profile settings and communication with a cloud-hosted backend.
+Subsequent development expanded the application through Google Single Sign-On, Firebase Cloud Messaging infrastructure, local database development and multilingual support.
+The use of Kotlin, Jetpack Compose, Firebase, ASP.NET Core, PostgreSQL and GitHub provides a foundation for continued development and maintenance.
+GitHub provides source-code management and version history, while GitHub Actions offers an opportunity to introduce automated building and testing into the development process.
+Overall, StudyFlow has progressed from a basic academic management prototype towards a more comprehensive mobile application. Completing the remaining offline, notification and localisation work will further improve its usability, accessibility and reliability.
