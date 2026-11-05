@@ -254,6 +254,7 @@ Future versions of StudyFlow are planned to include:
 - Data synchronisation
 
 **Conclusion:**
+
 StudyFlow was developed to address the need for a centralised academic organisation platform for tertiary students.
 The original prototype established the core functionality, including user authentication, academic module management, profile settings and communication with a cloud-hosted backend.
 Subsequent development expanded the application through Google Single Sign-On, Firebase Cloud Messaging infrastructure, local database development and multilingual support.
