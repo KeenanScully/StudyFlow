@@ -1,5 +1,8 @@
 # StudyFlow
 
+Link to the final part below:
+https://youtu.be/WNgabVEP_7Y
+
 Link to the prototype functionality down below:
 https://youtu.be/ml3ZqknexKM
 
