@@ -191,6 +191,10 @@ Firebase handles the authentication process and verifies the Google credentials.
 
 
 **Push notification functionality:**
+
+<img width="720" height="1600" alt="Push Notifications" src="https://github.com/user-attachments/assets/0795ef2d-d834-427e-a67e-ae45e3fd774b" />
+
+
 Firebase Cloud Messaging was introduced to provide the foundation for real-time notifications.
 
 The Android application now includes:
@@ -205,6 +209,10 @@ The Android receiving implementation has been built, but an end-to-end notificat
 
 **Multilingual support:
 **
+
+<img width="720" height="1600" alt="Settings" src="https://github.com/user-attachments/assets/65e60e38-04ec-4c31-ba88-4015a05e3f7e" />
+
+
 Multilingual support was introduced to improve the accessibility of StudyFlow.
 
 The original application uses English. Afrikaans translations have been added using Android string resources, and AppCompat locale management has been introduced as the language-switching mechanism.
@@ -215,6 +223,20 @@ isiXhosa is also a planned language, but its resource directory and translations
 
 
 **Testing and verification**
+
+##Username Change##
+<img width="720" height="1600" alt="Username Change " src="https://github.com/user-attachments/assets/9d894399-4638-4266-8cc0-1e830ad108e8" />
+
+##Dashboard##
+<img width="720" height="1600" alt="Dashboard" src="https://github.com/user-attachments/assets/74111e05-9b25-433e-9363-7051665cd980" />
+
+##Google SSO##
+<img width="720" height="1600" alt="Google SSO" src="https://github.com/user-attachments/assets/7b9a84c8-0d6d-4ae2-a765-89df367d2f5b" />
+
+##Login Page##
+<img width="720" height="1600" alt="Login Page " src="https://github.com/user-attachments/assets/069e8dd1-760a-4bc2-8b6c-07da2efb045d" />
+
+
 Testing was performed incrementally during development to ensure that new features did not unnecessarily affect existing application functionality.
 
 The following table summarises the known testing status.
