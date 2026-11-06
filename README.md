@@ -76,6 +76,9 @@ The application uses separate packages for screens, navigation, models, data acc
 
 ### Firebase
 
+<img width="957" height="435" alt="Screenshot 2026-11-06 141105" src="https://github.com/user-attachments/assets/73e2bf93-4bd6-4543-a3fe-cf89f895aa90" />
+
+
 Firebase Authentication stores the authentication information for registered StudyFlow users.
 
 Firebase is responsible for:
