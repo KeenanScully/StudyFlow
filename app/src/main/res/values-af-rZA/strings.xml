@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">StudyFlow</string>
+    <string name="welcome">Welkom by StudyFlow</string>
+    <string name="login">Teken in</string>
+    <string name="register">Registreer</string>
+    <string name="email">E-pos</string>
+    <string name="password">Wagwoord</string>
+    <string name="dashboard">Kontroleskerm</string>
+    <string name="modules">Modules</string>
+    <string name="settings">Instellings</string>
+    <string name="logout">Teken uit</string>
+    <string name="save">Stoor</string>
+    <string name="cancel">Kanselleer</string>
+    <string name="add_module">Voeg module by</string>
+    <string name="edit_module">Wysig module</string>
+    <string name="delete_module">Verwyder module</string>
+    <string name="language">Taal</string>
+    <string name="english">Engels</string>
+    <string name="afrikaans">Afrikaans</string>
+    <string name="xhosa">isiXhosa</string>
+</resources>

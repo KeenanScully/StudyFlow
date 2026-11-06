@@ -1,12 +1,16 @@
 package com.studyflow.app.ui.screens
 
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -22,8 +26,10 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.studyflow.app.data.auth.AuthRepository
 import com.studyflow.app.navigation.Routes
+import com.studyflow.app.utils.LanguageManager
 import com.studyflow.app.viewmodel.SettingsViewModel
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsScreen(
     navController: NavController,
@@ -32,25 +38,28 @@ fun SettingsScreen(
 
     val authRepository = AuthRepository()
 
-    val displayName by
-    settingsViewModel.displayName.collectAsState()
+    val displayName by settingsViewModel.displayName.collectAsState()
+    val email by settingsViewModel.email.collectAsState()
+    val message by settingsViewModel.message.collectAsState()
 
-    val email by
-    settingsViewModel.email.collectAsState()
+    var editedName by remember { mutableStateOf("") }
 
-    val message by
-    settingsViewModel.message.collectAsState()
+    var languageExpanded by remember { mutableStateOf(false) }
 
-    var editedName by remember {
-        mutableStateOf("")
+    val currentLanguage =
+        AppCompatDelegate.getApplicationLocales()
+            .get(0)?.language
+            ?: "en"
+
+    val selectedLanguage = when (currentLanguage) {
+        "af" -> "Afrikaans"
+        else -> "English"
     }
 
-    // Loads the Firebase user's profile information.
     LaunchedEffect(Unit) {
         settingsViewModel.loadUser()
     }
 
-    // Copies the existing display name into the editable field.
     LaunchedEffect(displayName) {
         editedName = displayName
     }
@@ -59,81 +68,94 @@ fun SettingsScreen(
         modifier = Modifier
             .fillMaxSize()
             .padding(24.dp),
-        horizontalAlignment = androidx.compose.ui.Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
 
         Text(
-            text = "Settings"
+            text = "Settings",
+            style = MaterialTheme.typography.headlineMedium
         )
 
-        Spacer(
-            modifier = Modifier.padding(10.dp)
-        )
+        Spacer(modifier = Modifier.height(16.dp))
 
-        Text(
-            text = "Email: $email"
-        )
+        Text(text = "Email: $email")
 
-        Spacer(
-            modifier = Modifier.padding(10.dp)
-        )
+        Spacer(modifier = Modifier.height(16.dp))
 
         OutlinedTextField(
             value = editedName,
-            onValueChange = {
-                editedName = it
-            },
-            label = {
-                Text("Display Name")
-            },
+            onValueChange = { editedName = it },
+            label = { Text("Display Name") },
             modifier = Modifier.fillMaxWidth()
         )
 
-        Spacer(
-            modifier = Modifier.padding(10.dp)
-        )
+        Spacer(modifier = Modifier.height(10.dp))
 
         Button(
             onClick = {
-
                 if (editedName.isNotBlank()) {
-
-                    settingsViewModel
-                        .updateDisplayName(
-                            editedName.trim()
-                        )
+                    settingsViewModel.updateDisplayName(
+                        editedName.trim()
+                    )
                 }
             },
             modifier = Modifier.fillMaxWidth()
         ) {
-
             Text("Save Changes")
         }
 
         if (message != null) {
-
-            Spacer(
-                modifier = Modifier.padding(8.dp)
-            )
-
-            Text(
-                text = message ?: ""
-            )
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(text = message ?: "")
         }
 
-        Spacer(
-            modifier = Modifier.padding(10.dp)
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Text(
+            text = "Language",
+            style = MaterialTheme.typography.titleMedium
         )
+
+        var selectedLanguage by remember {
+            mutableStateOf("English")
+        }
+
+        Column(
+            modifier = Modifier.fillMaxWidth()
+        ) {
+
+            Text("Select Language")
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Button(
+                onClick = {
+                    selectedLanguage = "English"
+                    LanguageManager.setLanguage("en")
+                },
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text("English")
+            }
+
+            Button(
+                onClick = {
+                    selectedLanguage = "Afrikaans"
+                    LanguageManager.setLanguage("af")
+                },
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text("Afrikaans")
+            }
+        }
+
+        Spacer(modifier = Modifier.height(20.dp))
 
         Button(
             onClick = {
-
-                // Signs the user out of Firebase.
                 authRepository.logout()
 
                 navController.navigate(Routes.LOGIN) {
-
                     popUpTo(Routes.DASHBOARD) {
                         inclusive = true
                     }
@@ -141,13 +163,10 @@ fun SettingsScreen(
             },
             modifier = Modifier.fillMaxWidth()
         ) {
-
             Text("Logout")
         }
 
-        Spacer(
-            modifier = Modifier.padding(10.dp)
-        )
+        Spacer(modifier = Modifier.height(10.dp))
 
         Button(
             onClick = {
@@ -155,7 +174,6 @@ fun SettingsScreen(
             },
             modifier = Modifier.fillMaxWidth()
         ) {
-
             Text("Back to Dashboard")
         }
     }
